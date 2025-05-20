@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Despesa Zero – Categoria</title>
+
+    <link rel="stylesheet" th:href="@{/css/base.css}" />
+    <link rel="stylesheet" th:href="@{/css/components/card.css}" />
+    <link rel="stylesheet" th:href="@{/css/components/button.css}" />
+    <link rel="stylesheet" th:href="@{/css/components/alert.css}" />
+
+    <link rel="stylesheet" th:href="@{/css/pages/category-form.css}" />
+</head>
+<body>
+<div class="login-container">
+    <div th:if="${errorMessage}" class="alert alert-error">
+        <span th:text="${errorMessage}"></span>
+    </div>
+    <div th:if="${successMessage}" class="alert alert-success">
+        <span th:text="${successMessage}"></span>
+    </div>
+
+    <div class="login-card">
+        <h1 class="form-title">Despesa Zero</h1>
+
+        <form th:action="@{/categories/save}" th:object="${category}" method="post">
+            <th:block th:if="${not isNewForm}">
+                <input type="hidden" th:field="*{id}" />
+                <input type="hidden" th:field="*{userId}" th:if="${category.userId != null}" />
+            </th:block>
+
+            <div class="input-group">
+                <label for="name" th:if="${isNewForm}">
+                    Informe abaixo o nome da categoria a ser criada
+                </label>
+                <label for="name" th:unless="${isNewForm}">
+                    Informe abaixo o novo nome da categoria a ser alterada
+                </label>
+                <input
+                        type="text"
+                        id="name"
+                        th:field="*{name}"
+                        placeholder="Ex: Alimentação"
+                        required />
+            </div>
+
+            <div class="category-actions">
+                <a th:href="@{/categories}" class="btn-login voltar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M14 7l-5 5 5 5" stroke="white" stroke-width="4" fill="none"/>
+                    </svg>
+                    Voltar
+                </a>
+                <button type="submit" class="btn-login salvar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M19 13H12V19H11V13H5V12H11V5H12V12H19V13Z"
+                              stroke="white" stroke-width="2" fill="none"/>
+                    </svg>
+                    Salvar
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

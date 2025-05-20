@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Despesa Zero – Categorias</title>
+
+    <link rel="stylesheet" th:href="@{/css/base.css}" />
+    <link rel="stylesheet" th:href="@{/css/components/card.css}" />
+    <link rel="stylesheet" th:href="@{/css/components/button.css}" />
+    <link rel="stylesheet" th:href="@{/css/pages/category-list.css}" />
+</head>
+<body>
+<div class="login-container">
+    <div class="login-card">
+
+        <h1 class="home-title">Despesa Zero</h1>
+
+        <p class="subtitle">
+            Segue abaixo a lista de categorias registradas.
+            Selecione uma opção para visualizar, editar, criar ou excluir uma categoria.
+        </p>
+
+        <div class="table-container">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Ações</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="c : ${categories}">
+                    <td th:text="${c.id}">1</td>
+                    <td th:text="${c.name}">Nome da Categoria</td>
+                    <td class="actions">
+                        <a th:href="@{/categories/edit/{id}(id=${c.id})}" class="edit-link">Editar</a>
+                        <a th:href="@{/categories/remove/{id}(id=${c.id})}" class="remove-link"
+                           onclick="return confirm('Excluir categoria?');">Remover</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="category-actions">
+            <a th:href="@{/}" class="btn-login voltar">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M14 7l-5 5 5 5" stroke="white" stroke-width="4" fill="none"/>
+                </svg>
+                Voltar
+            </a>
+            <a th:href="@{/categories/new}" class="btn-login nova-categoria">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M19 13H12V19H11V13H5V12H11V5H12V12H19V13Z"
+                          stroke="white" stroke-width="2" fill="none"/>
+                </svg>
+                Nova Categoria
+            </a>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
