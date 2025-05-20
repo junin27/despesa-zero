@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Despesa Zero</title>
+
+    <link rel="stylesheet" th:href="@{/css/base.css}" />
+    <link rel="stylesheet" th:href="@{/css/components/card.css}" />
+    <link rel="stylesheet" th:href="@{/css/components/button.css}" />
+
+    <link rel="stylesheet" th:href="@{/css/pages/expense-report.css}" />
+</head>
+<body>
+<div class="login-container">
+    <div class="login-card">
+
+        <h1 class="home-title">Despesa Zero</h1>
+
+        <p class="subtitle">
+            Segue abaixo o relatório mensal das despesas de
+            <span th:text="${#strings.substringBefore(currentMonth,' ')}">MÊS</span>
+            de
+            <span th:text="${#strings.substringAfter(currentMonth,' ')}">ANO</span>.
+        </p>
+
+        <div class="metrics-container">
+            <p><strong>Total de despesas:</strong> R$ <span th:text="${totalValue}">0.00</span></p>
+            <p><strong>Média por despesa:</strong> R$ <span th:text="${averageValue}">0.00</span></p>
+            <p><strong>Total de despesas cadastradas:</strong> <span th:text="${quantityTotal}">0</span></p>
+            <p><strong>Média de despesas por categoria:</strong> <span th:text="${averageByCategory}">0</span></p>
+            <p>
+                <strong>Categoria com mais gastos:</strong>
+                <span th:text="${bigger != null} ? ${bigger.key.name} : 'Nenhuma'">Categoria</span>
+                (R$ <span th:text="${bigger != null} ? ${bigger.value} : '0.00'">0.00</span>)
+            </p>
+            <p>
+                <strong>Categoria com menos gastos:</strong>
+                <span th:text="${smaller != null} ? ${smaller.key.name} : 'Nenhuma'">Categoria</span>
+                (R$ <span th:text="${smaller != null} ? ${smaller.value} : '0.00'">0.00</span>)
+            </p>
+        </div>
+
+        <h3 class="subtitle percentage-title">Percentual por Categoria</h3>
+        <ul class="percentage-list">
+            <li th:each="entry : ${percentages}">
+                <span th:text="${entry.key.name}">Categoria</span>:
+                <span th:text="${#numbers.formatDecimal(entry.value, 1, 2)}">0.0</span>%
+            </li>
+        </ul>
+
+        <div class="category-actions export-row">
+            <form th:action="@{/expense/report/pdf}" method="post">
+                <button type="submit" class="btn-login relatorio">📄 Exportar PDF</button>
+            </form>
+            <form th:action="@{/expense/report/word}" method="post">
+                <button type="submit" class="btn-login relatorio">📄 Exportar Word</button>
+            </form>
+        </div>
+
+        <div class="category-actions">
+            <a th:href="@{/expense}" class="btn-login voltar">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M14 7l-5 5 5 5" stroke="white" stroke-width="4" fill="none"/>
+                </svg>
+                Voltar
+            </a>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

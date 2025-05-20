@@ -1,0 +1,152 @@
+.home-title {
+    text-align: center;
+    margin-bottom: 10px;
+    color: var(--purple-dark);
+}
+
+.subtitle {
+
+    margin: 0 0 20px;
+    font-size: 1rem;
+    color: var(--purple-dark);
+    line-height: 1.5;
+    text-align: justify;
+    text-align-last: justify;
+    hyphens: auto;
+    word-wrap: break-word;
+
+}
+
+.percentage-title {
+
+    text-align: left;
+    text-align-last: left;
+
+}
+
+.metrics-container p {
+
+    margin: 0 0 1rem;
+    text-align: justify;
+    color: var(--purple-dark);
+
+}
+
+.metrics-container {
+
+    margin-bottom: 2rem;
+
+}
+
+.percentage-list {
+
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+
+}
+.percentage-list li {
+
+    margin-bottom: 0.75rem;
+    text-align: justify;
+    color: var(--purple-dark);
+
+}
+
+.export-row {
+
+    display: flex;
+    gap: 10px;
+
+}
+
+.category-actions {
+
+    display: flex;
+    gap: 10px;
+
+}
+
+.category-actions.export-row {
+
+    margin-bottom: 1rem;
+
+}
+
+.category-actions.export-row form,
+.category-actions.export-row a {
+
+    flex: 1;
+
+}
+
+.category-actions .btn-login {
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 6px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+}
+
+.category-actions.export-row .btn-login.relatorio {
+
+    background-color: #0277BD;
+    color: #fff;
+
+}
+
+.category-actions.export-row .btn-login.relatorio:hover {
+
+    background-color: #015E8F;
+
+}
+
+.category-actions .btn-login.voltar {
+
+    background-color: var(--purple);
+    color: #fff;
+
+}
+.category-actions .btn-login.voltar:hover {
+
+    background-color: var(--purple-dark);
+
+}
+
+@media (max-width: 768px) {
+
+    .category-actions {
+
+        flex-direction: column;
+
+    }
+}
+
+.metrics-container p,
+.percentage-list li {
+
+    position: relative;
+    padding-left: 2em;
+
+}
+
+.metrics-container p::before,
+.percentage-list li::before {
+
+    content: "•";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.5em;
+    line-height: 1;
+    color: var(--purple);
+
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Despesa Zero</title>
+
+    <link rel="stylesheet" th:href="@{/css/base.css}" />
+    <link rel="stylesheet" th:href="@{/css/components/card.css}" />
+    <link rel="stylesheet" th:href="@{/css/components/button.css}" />
+
+    <link rel="stylesheet" th:href="@{/css/pages/expense-form.css}" />
+</head>
+<body>
+<div class="login-container">
+    <div class="login-card">
+
+        <h1 class="form-title">Despesa Zero</h1>
+
+        <p class="subtitle" th:if="${expense.id == null}">
+            Informe abaixo as informações da despesa ser adicionada
+        </p>
+        <p class="subtitle" th:if="${expense.id != null}">
+            Informe abaixo as novas informações da despesa ser alterada
+        </p>
+
+        <form th:action="@{/expense/save}" th:object="${expense}" method="post">
+            <input type="hidden" th:field="*{id}" />
+
+            <div class="input-group">
+                <label for="value">Valor</label>
+                <input
+                        type="number"
+                        step="0.01"
+                        id="value"
+                        th:field="*{value}"
+                        placeholder="0.00"
+                        required />
+            </div>
+
+            <div class="input-group">
+                <label for="date">Data</label>
+                <input
+                        type="date"
+                        id="date"
+                        th:field="*{date}"
+                        required />
+            </div>
+
+            <div class="input-group">
+                <label for="categoryId">Categoria</label>
+                <select
+                        id="categoryId"
+                        th:field="*{categoryId}"
+                        required>
+                    <option value="" disabled
+                            th:if="${expense.categoryId == null}"
+                            selected>Selecione...</option>
+                    <option th:each="c : ${categories}"
+                            th:value="${c.id}"
+                            th:text="${c.name}"
+                            th:selected="${c.id == expense.categoryId}">
+                        Categoria
+                    </option>
+                </select>
+            </div>
+
+            <div class="category-actions">
+                <a th:href="@{/expense}" class="btn-login voltar">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M14 7l-5 5 5 5"
+                              stroke="white" stroke-width="4" fill="none"/>
+                    </svg>
+                    Voltar
+                </a>
+                <button type="submit" class="btn-login salvar">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M19 13H12V19H11V13H5V12H11V5H12V12H19V13Z"
+                              stroke="white" stroke-width="2" fill="none"/>
+                    </svg>
+                    Salvar
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

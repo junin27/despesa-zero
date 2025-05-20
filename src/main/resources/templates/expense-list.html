@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Lista de Despesas</title>
+
+    <link rel="stylesheet" th:href="@{/css/base.css}" />
+    <link rel="stylesheet" th:href="@{/css/components/card.css}" />
+    <link rel="stylesheet" th:href="@{/css/components/button.css}" />
+
+    <link rel="stylesheet" th:href="@{/css/pages/expense-list.css}" />
+</head>
+<body>
+<div class="login-container">
+    <div class="login-card">
+
+        <h1 class="home-title">Despesa Zero</h1>
+
+        <p class="subtitle">
+            Segue abaixo a lista de despesas registradas de
+            <span th:text="${#strings.substringBefore(currentMonth,' ')}">MÊS</span>
+            de
+            <span th:text="${#strings.substringAfter(currentMonth,' ')}">ANO</span>.
+            Selecione uma opção para visualizar, editar, criar ou excluir uma despesa.
+        </p>
+
+        <div class="table-container">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Valor</th>
+                    <th>Data</th>
+                    <th>Categoria</th>
+                    <th>Ações</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="d : ${expenses}">
+                    <td th:text="${d.id}">1</td>
+                    <td>R$ <span th:text="${d.value}">0.00</span></td>
+                    <td th:text="${d.date}">2025-04-23</td>
+                    <td th:text="${categoryMap[d.categoryId] != null
+                           ? categoryMap[d.categoryId].name
+                           : 'Sem Categoria'}">Categoria</td>
+                    <td class="actions">
+                        <a th:href="@{/expense/edit/{id}(id=${d.id})}" class="edit-link">Editar</a>
+                        <a th:href="@{/expense/remove/{id}(id=${d.id})}" class="remove-link"
+                           onclick="return confirm('Excluir despesa?');">Remover</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="report-action">
+            <a th:href="@{/expense/report}" class="btn-login relatorio">
+                📊 Gerar Relatório
+            </a>
+        </div>
+
+        <div class="category-actions">
+            <a th:href="@{/}" class="btn-login voltar">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M14 7l-5 5 5 5"
+                          stroke="white" stroke-width="4" fill="none"/>
+                </svg>
+                Voltar
+            </a>
+            <a th:href="@{/expense/new}" class="btn-login nova-categoria">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M19 13H12V19H11V13H5V12H11V5H12V12H19V13Z"
+                          stroke="white" stroke-width="2" fill="none"/>
+                </svg>
+                Nova Despesa
+            </a>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
