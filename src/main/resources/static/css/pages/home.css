@@ -1,0 +1,78 @@
+h1 {
+
+    white-space: nowrap;
+    overflow-x: auto;
+    font-size: 2.25rem;
+    margin-bottom: 10px;
+    text-align: center;
+    color: var(--purple-dark);
+
+}
+
+.subtitle {
+
+    margin: 0 0 20px;
+    font-size: 1rem;
+    color: var(--purple-dark);
+    line-height: 1.5;
+    text-align: justify;
+    text-align-last: justify;
+    hyphens: auto;
+    word-wrap: break-word;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+
+}
+
+.divider {
+
+    border: none;
+    border-top: 3px solid #e0e0e0;
+    margin: 20px 0;
+
+}
+
+.home-options {
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+}
+
+.home-options .btn-login {
+
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: 2px solid var(--purple-dark);
+    border-radius: 4px;
+    background-color: var(--purple);
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.2s, border-color 0.2s;
+
+}
+
+.home-options .btn-login:hover {
+
+    background-color: var(--purple-dark);
+    border-color: var(--purple-dark);
+
+}
+
+.home-options .btn-logout-red {
+
+    background-color: #ff0000;
+    border-color: #e30000;
+    color: white;
+
+}
+
+.home-options .btn-logout-red:hover {
+
+    background-color: #a40000;
+    border-color: #8c0000;
+
+}

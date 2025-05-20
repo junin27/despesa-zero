@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Controle de Despesas – Início</title>
+
+    <link rel="stylesheet" th:href="@{/css/base.css}" />
+    <link rel="stylesheet" th:href="@{/css/components/card.css}" />
+    <link rel="stylesheet" th:href="@{/css/components/button.css}" />
+    <link rel="stylesheet" th:href="@{/css/pages/home.css}" />
+</head>
+<body>
+<div class="login-container">
+    <div class="login-card">
+
+        <h1>Despesa Zero</h1>
+        <p class="subtitle">
+            Olá, <strong th:text="${user.name}">Usuário</strong>!
+            Seja bem-vindo(a) ao Despesa Zero.
+            Escolha uma das opções abaixo para gerenciar suas despesas.
+        </p>
+        <hr class="divider"/>
+
+        <div class="home-options">
+            <a th:href="@{/categories}" class="btn-login">
+                🗂️ Gerenciar Categorias de Despesas
+            </a>
+            <a th:href="@{/expense}" class="btn-login">
+                💸 Gerenciar Entrada de Despesas
+            </a>
+            <a th:href="@{/logout}" class="btn-login btn-logout-red">
+                📤 Desconectar do Despesa Zero
+            </a>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

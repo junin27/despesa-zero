@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Criar Conta – Despesa Zero</title>
+
+    <link rel="stylesheet" th:href="@{/css/base.css}" />
+
+    <link rel="stylesheet" th:href="@{/css/components/card.css}" />
+    <link rel="stylesheet" th:href="@{/css/components/button.css}" />
+
+    <link rel="stylesheet" th:href="@{/css/pages/register.css}" />
+</head>
+<body>
+<div class="login-container">
+    <div class="login-card">
+
+        <h1>Despesa Zero</h1>
+
+        <p class="subtitle">
+            Registre sua conta já e aproveite o Despesa Zero.<br>Gaste Menos e Viva Mais!
+        </p>
+
+        <form th:action="@{/register}"
+              th:object="${user}"
+              method="post">
+
+            <div class="input-group">
+                <label for="name">Nome</label>
+                <input th:field="*{name}"
+                       id="name"
+                       type="text"
+                       placeholder="Seu nome"
+                       required />
+            </div>
+
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input th:field="*{email}"
+                       id="email"
+                       type="email"
+                       placeholder="Seu@email.com"
+                       required />
+            </div>
+
+            <div class="input-group">
+                <label for="password">Senha</label>
+                <input th:field="*{password}"
+                       id="password"
+                       type="password"
+                       placeholder="••••••••"
+                       required />
+            </div>
+
+            <div class="input-group">
+                <label for="confirmPassword">Confirmar Senha</label>
+                <input th:field="*{confirmPassword}"
+                       id="confirmPassword"
+                       type="password"
+                       placeholder="••••••••"
+                       required />
+            </div>
+
+            <div th:if="${error}"
+                 class="error-message"
+                 th:text="${error}">
+            </div>
+
+            <button type="submit" class="btn-login">Registrar</button>
+        </form>
+
+        <p class="register-link">
+            Já possui uma conta registrada?
+            <a th:href="@{/login}">Entre Aqui!</a>
+        </p>
+
+    </div>
+</div>
+</body>
+</html>

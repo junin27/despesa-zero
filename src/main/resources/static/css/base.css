@@ -1,0 +1,34 @@
+:root {
+
+    --purple-dark: #4A148C;
+    --purple:      #6A1B9A;
+    --purple-light:#CE93D8;
+    --bg:          #F3E5F5;
+
+}
+
+* {
+
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+}
+
+body {
+
+    font-family: 'Montserrat', sans-serif;
+    background: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    color: var(--purple-dark);
+
+}
+
+a {
+
+    text-decoration: none;
+
+}

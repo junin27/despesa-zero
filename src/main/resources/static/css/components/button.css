@@ -1,0 +1,22 @@
+.btn-login {
+
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background: var(--purple);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.3s;
+
+}
+
+.btn-login:hover {
+
+    background: var(--purple-dark);
+
+}
