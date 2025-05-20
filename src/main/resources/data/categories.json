@@ -1,0 +1,17 @@
+[ {
+  "id" : 1,
+  "name" : "Faculdade",
+  "userId" : 1
+}, {
+  "id" : 2,
+  "name" : "Mercado",
+  "userId" : 1
+}, {
+  "id" : 3,
+  "name" : "Energia",
+  "userId" : 1
+}, {
+  "id" : 4,
+  "name" : "Academia",
+  "userId" : 1
+} ]

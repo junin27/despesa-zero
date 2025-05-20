@@ -1,0 +1,156 @@
+.table-container {
+
+    height: 300px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    width: 100%;
+
+}
+
+.table {
+
+    width: 100%;
+    border-collapse: collapse;
+
+}
+
+.table th,
+.table td {
+
+    border: 3px solid #8B8B8B;
+    border-collapse: collapse;
+    padding: 12px;
+    text-align: center;
+    vertical-align: middle;
+
+}
+
+.table th {
+
+    background: var(--purple-light);
+    color: var(--purple-dark);
+
+}
+
+.home-title {
+
+    text-align: center;
+    margin-bottom: 10px;
+    color: var(--purple-dark);
+
+}
+
+.subtitle {
+
+    margin: 0 0 20px;
+    font-size: 1rem;
+    color: var(--purple-dark);
+    line-height: 1.5;
+    text-align: justify;
+    hyphens: auto;
+    word-wrap: break-word;
+
+}
+
+.actions a {
+
+    margin-right: 10px;
+    font-weight: 600;
+    text-decoration: none;
+
+}
+
+.edit-link {
+
+    color: #FBC02D;
+
+}
+
+.edit-link:hover {
+
+    text-decoration: underline;
+
+}
+
+.remove-link {
+
+    color: #C62828;
+
+}
+
+.remove-link:hover {
+
+    text-decoration: underline;
+
+}
+
+.category-actions {
+
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+
+}
+
+.category-actions .btn-login {
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    flex-grow: 1;
+
+}
+
+.category-actions .btn-login svg {
+
+    margin-right: 4px;
+
+}
+
+.category-actions .voltar {
+
+    background-color: var(--purple);
+    color: white;
+
+}
+
+.category-actions .voltar:hover {
+
+    background-color: var(--purple-dark);
+
+}
+
+.category-actions .nova-categoria {
+
+    background-color: #388E3C;
+    color: white;
+
+}
+.category-actions .nova-categoria:hover {
+
+    background-color: #2C6B2F;
+
+}
+
+@media (max-width: 768px) {
+
+    .table-container {
+
+        height: 300px;
+
+    }
+
+    .category-actions {
+
+        flex-direction: column;
+        gap: 10px;
+
+    }
+}
